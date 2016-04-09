@@ -36,6 +36,7 @@ ext {
 }
 
 version = minecraft_version + "-" + "b" + cibuild + "-univeral"
+group = "com.fireball1725.devworld"
 archivesBaseName = cibasename
 
 // If TeamCity is running this build, lets set the version info
