@@ -1,0 +1,19 @@
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    maven {
+        name "FireBall API Depot"
+        url "http://dl.tsr.me/artifactory/libs-release/"
+    }
+}
+
+configurations {
+    mods
+    shade
+    compile.extendsFrom shade
+}
+
+dependencies {
+
+}
