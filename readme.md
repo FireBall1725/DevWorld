@@ -39,7 +39,7 @@ This mod's official download can be found on [CurseForge](http://minecraft.curse
 ### Using your Gradle Script
 Add my Maven Server to your dependencies or add the repositories section to your gradle script
 
-```json
+```groovy
 repositories {
     mavenLocal()
     mavenCentral()
@@ -53,7 +53,7 @@ repositories {
 
 Add the mods configuration to your configuration section, or add it if it doesn't already exist
 
-```json
+```groovy
 configurations {
     mods
 }
@@ -74,8 +74,10 @@ tasks.setupDevWorkspace.dependsOn installMods
 
 Add DevWorld as a dependency to your dependencies section
 
-```json
-mods "com.fireball1725.devworld:devworld:[Minecraft Version]-b[Build Number]-universal"
+```groovy
+dependencies {
+    mods "com.fireball1725.devworld:devworld:[Minecraft Version]-b[Build Number]-universal"
+}
 ```
 
 Make sure to fill in the correct Minecraft Version and Build Number
