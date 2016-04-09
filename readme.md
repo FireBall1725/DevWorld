@@ -91,7 +91,7 @@ Have a suggestion, found a bug?  Create an issue now!
     * Do not tag it with something like `[Feature]` or `[Bug]`. When it is applicable, we will take care of it.
     * The following details are required. Not including them can cause the issue to be closed.
         * Forge version
-        * Graves version
+        * DevWorld version
         * Crash log, when reporting a crash (Please make sure to use [pastebin](http://pastebin.com/))
             * Do not post an excerpt of what you consider important, instead:
             * Post the full log
@@ -105,12 +105,12 @@ Have a suggestion, found a bug?  Create an issue now!
         * Server or Single Player?
         * Screen shots or Pictures of the problem
         * Mod Pack using and version?
-            * Keep in mind that some mods might use an outdated version of Graves
+            * Keep in mind that some mods might use an outdated version of DevWorld
             * If so you should report it to your modpack
 5. Click `Submit New Issue`, and wait for feedback!
 
 ## Credits
 Thanks to the following people:
 
-* [FireBall1725](https://twitter.com/FireBall1725) for Graves
+* [FireBall1725](https://twitter.com/FireBall1725) for DevWorld
 * all the [contributors](https://github.com/FireBall1725/DevWorld/graphs/contributors)
