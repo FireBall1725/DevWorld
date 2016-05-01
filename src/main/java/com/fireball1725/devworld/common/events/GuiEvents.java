@@ -29,19 +29,19 @@ public class GuiEvents {
 
     @SubscribeEvent
     public void onScreenInitPost(GuiScreenEvent.InitGuiEvent.Post event) {
-        if (event.gui instanceof GuiMainMenu) {
-            int buttonY = event.gui.height / 4 + 48;
-            event.buttonList.remove(0); // Remove the single player world button...
+        if (event.getGui() instanceof GuiMainMenu) {
+            int buttonY = event.getGui().height / 4 + 48;
+            event.getButtonList().remove(0); // Remove the single player world button...
 
-            event.buttonList.add(new GuiButton(1725, event.gui.width / 2 + 2, buttonY, 98, 20, I18n.format("New Dev World", new Object[0])));
-            event.buttonList.add(new GuiButton(1, event.gui.width / 2 - 100, buttonY, 98, 20, I18n.format("menu.singleplayer", new Object[0])));
+            event.getButtonList().add(new GuiButton(1725, event.getGui().width / 2 + 2, buttonY, 98, 20, I18n.format("New Dev World", new Object[0])));
+            event.getButtonList().add(new GuiButton(1, event.getGui().width / 2 - 100, buttonY, 98, 20, I18n.format("menu.singleplayer", new Object[0])));
         }
     }
 
     @SubscribeEvent
     public void onButtonClickPost(GuiScreenEvent.ActionPerformedEvent.Post event) {
-        if (event.gui instanceof GuiMainMenu) {
-            if (event.button.id == 1725) {
+        if (event.getGui() instanceof GuiMainMenu) {
+            if (event.getButton().id == 1725) {
                 // todo: make a new world...
                 this.mc.displayGuiScreen((GuiScreen)null);
 
@@ -115,7 +115,7 @@ public class GuiEvents {
     private ISaveFormat saveLoader;
 
     public void launchIntegratedServer(String p_71371_1_, String p_71371_2_, WorldSettings p_71371_3_) {
-        this.saveLoader = new AnvilSaveConverter(new File(Minecraft.getMinecraft().mcDataDir, "saves"));
+        this.saveLoader = new AnvilSaveConverter(new File(Minecraft.getMinecraft().mcDataDir, "saves"), null);
 
         Minecraft.getMinecraft().loadWorld((WorldClient)null);
         System.gc();
