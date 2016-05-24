@@ -79,7 +79,7 @@ public class GuiEvents {
     {
         this.worldSaveName = this.worldName.trim();
 
-        for (char c0 : ChatAllowedCharacters.allowedCharactersArray)
+        for (char c0 : ChatAllowedCharacters.ILLEGAL_FILE_CHARACTERS)
         {
             this.worldSaveName = this.worldSaveName.replace(c0, '_');
         }
