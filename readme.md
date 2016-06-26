@@ -78,11 +78,11 @@ Add DevWorld as a dependency to your dependencies section
 
 ```groovy
 dependencies {
-    mods "com.fireball1725.devworld:devworld:[Minecraft Version]-b[Build Number]-universal"
+    mods "com.fireball1725.devworld:devworld:[Minecraft Version]-b[Build Number]-client"
 }
 ```
 
-Make sure to fill in the correct Minecraft Version and Build Number
+Make sure to fill in the correct Minecraft Version and Build Number, note as of build 14, it is nolonger universal, and it is now client.
 
 ## Issues
 Have a suggestion, found a bug?  Create an issue now!
