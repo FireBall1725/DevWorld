@@ -8,6 +8,7 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatAllowedCharacters;
+import net.minecraft.world.GameType;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.chunk.storage.AnvilSaveConverter;
@@ -65,7 +66,7 @@ public class GuiEvents {
                     }
                 }
 
-                WorldSettings.GameType gameType = WorldSettings.GameType.CREATIVE;
+                GameType gameType = GameType.CREATIVE;
                 WorldSettings worldsettings = new WorldSettings(i, gameType, true, false, WorldType.FLAT);
 
                 func_146314_g();
