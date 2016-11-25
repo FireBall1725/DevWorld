@@ -1,4 +1,4 @@
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'forge'
 apply plugin: 'com.matthewprenger.cursegradle'
 
 apply from: 'gradle/scripts/dependencies.gradle'
@@ -18,7 +18,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
         classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.7"
     }
 }
@@ -59,9 +59,9 @@ minecraft {
     replace "@MCVERSION@", minecraft_version
 
     runDir = "run"
-    mappings = "snapshot_20161111"
+    //mappings = "snapshot_20161111"
 
-    useDepAts = true
+    //useDepAts = true
 }
 
 processResources

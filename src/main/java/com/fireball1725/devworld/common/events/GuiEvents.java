@@ -1,5 +1,6 @@
 package com.fireball1725.devworld.common.events;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -8,7 +9,6 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatAllowedCharacters;
-import net.minecraft.world.GameType;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.chunk.storage.AnvilSaveConverter;
@@ -16,7 +16,6 @@ import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
@@ -30,19 +29,19 @@ public class GuiEvents {
 
     @SubscribeEvent
     public void onScreenInitPost(GuiScreenEvent.InitGuiEvent.Post event) {
-        if (event.getGui() instanceof GuiMainMenu) {
-            int buttonY = event.getGui().height / 4 + 48;
-            event.getButtonList().remove(0); // Remove the single player world button...
+        if (event.gui instanceof GuiMainMenu) {
+            int buttonY = event.gui.height / 4 + 48;
+            event.buttonList.remove(0); // Remove the single player world button...
 
-            event.getButtonList().add(new GuiButton(1725, event.getGui().width / 2 + 2, buttonY, 98, 20, I18n.format("New Dev World", new Object[0])));
-            event.getButtonList().add(new GuiButton(1, event.getGui().width / 2 - 100, buttonY, 98, 20, I18n.format("menu.singleplayer", new Object[0])));
+            event.buttonList.add(new GuiButton(1725, event.gui.width / 2 + 2, buttonY, 98, 20, I18n.format("New Dev World", new Object[0])));
+            event.buttonList.add(new GuiButton(1, event.gui.width / 2 - 100, buttonY, 98, 20, I18n.format("menu.singleplayer", new Object[0])));
         }
     }
 
     @SubscribeEvent
     public void onButtonClickPost(GuiScreenEvent.ActionPerformedEvent.Post event) {
-        if (event.getGui() instanceof GuiMainMenu) {
-            if (event.getButton().id == 1725) {
+        if (event.gui instanceof GuiMainMenu) {
+            if (event.button.id == 1725) {
                 // todo: make a new world...
                 this.mc.displayGuiScreen((GuiScreen)null);
 
@@ -66,7 +65,7 @@ public class GuiEvents {
                     }
                 }
 
-                GameType gameType = GameType.CREATIVE;
+                WorldSettings.GameType gameType = WorldSettings.GameType.CREATIVE;
                 WorldSettings worldsettings = new WorldSettings(i, gameType, true, false, WorldType.FLAT);
 
                 func_146314_g();
@@ -80,7 +79,7 @@ public class GuiEvents {
     {
         this.worldSaveName = this.worldName.trim();
 
-        for (char c0 : ChatAllowedCharacters.ILLEGAL_FILE_CHARACTERS)
+        for (char c0 : ChatAllowedCharacters.allowedCharacters)
         {
             this.worldSaveName = this.worldSaveName.replace(c0, '_');
         }
@@ -116,7 +115,7 @@ public class GuiEvents {
     private ISaveFormat saveLoader;
 
     public void launchIntegratedServer(String p_71371_1_, String p_71371_2_, WorldSettings p_71371_3_) {
-        this.saveLoader = new AnvilSaveConverter(new File(Minecraft.getMinecraft().mcDataDir, "saves"), null);
+        this.saveLoader = new AnvilSaveConverter(new File(Minecraft.getMinecraft().mcDataDir, "saves"));
 
         Minecraft.getMinecraft().loadWorld((WorldClient)null);
         System.gc();
@@ -124,7 +123,7 @@ public class GuiEvents {
 
         NBTTagCompound worldData = new NBTTagCompound();
         worldData.setString("generatorName", "flat");
-        worldData.setString("generatorOptions", "3;minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;2;");
+        worldData.setString("generatorOptions", "2;7,3x1,52x24;2;");
         worldData.setInteger("generatorVersion", 0);
 
         worldData.setInteger("GameType", 1);
