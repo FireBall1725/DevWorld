@@ -18,7 +18,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
         classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.7"
     }
 }
@@ -27,8 +27,8 @@ configurations.all {
     resolutionStrategy.cacheDynamicVersionsFor 7200, 'hours'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_6
-targetCompatibility = JavaVersion.VERSION_1_6
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 ext {
     curseApiKey = ""
@@ -59,7 +59,7 @@ minecraft {
     replace "@MCVERSION@", minecraft_version
 
     runDir = "run"
-    mappings = "snapshot_20161111"
+    mappings = "snapshot_20170724"
 
     useDepAts = true
 }
