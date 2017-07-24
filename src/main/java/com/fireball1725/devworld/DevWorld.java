@@ -1,8 +1,6 @@
 package com.fireball1725.devworld;
 
 import com.fireball1725.devworld.proxy.IProxy;
-import com.mojang.realmsclient.dto.RealmsServer;
-import net.minecraft.world.WorldType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
